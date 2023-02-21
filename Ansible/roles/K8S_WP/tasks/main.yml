@@ -12,23 +12,23 @@
 - name: "Deployment Service Ingress"
   shell: kubectl apply -f https://github.com/Heckfy05/Final_Task_GL/blob/main/Ansible/roles/K8S_WP/wp/Deployment.yaml
 
-- name: "Launching WordPress Pod"
-  shell: kubectl run "{{ wp_pod }}" --image "{{ wp_image }}"
+# - name: "Launching WordPress Pod"
+#   shell: kubectl run "{{ wp_pod }}" --image "{{ wp_image }}"
 
-- name: "Exposing Pod"
-  shell: kubectl expose pod "{{ wp_pod }}" --type=NodePort --port=80
+# - name: "Exposing Pod"
+#   shell: kubectl expose pod "{{ wp_pod }}" --type=NodePort --port=80
   
-- name: "Get svc"
-  shell: kubectl get svc
-  register: svc
+# - name: "Get svc"
+#   shell: kubectl get svc
+#   register: svc
 
-- name: "Print"
-  debug:
-          var: svc.stdout
+# - name: "Print"
+#   debug:
+#           var: svc.stdout
 
-- name: "Database IP"
-  shell: "kubectl get pods -o wide"
-  register: db_ip
+# - name: "Database IP"
+#   shell: "kubectl get pods -o wide"
+#   register: db_ip
 
-- debug:
-    var: "db_ip.stdout_lines"
+# - debug:
+#     var: "db_ip.stdout_lines"
