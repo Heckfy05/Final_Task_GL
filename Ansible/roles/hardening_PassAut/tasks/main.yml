@@ -1,0 +1,24 @@
+---
+# tasks file for create_empty_file
+#
+#- name: create_empty_file
+#  copy:
+#    content: "PasswordAuthentication no"
+#    dest: /etc/iaac
+#    force: no
+#    group: sys
+#    owner: root
+#    mode: 0500
+
+- name: Turning off authentification with password
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    line: PasswordAuthentication no
+    owner: root
+    group: root
+    mode: '0644'
+
+#- name: Stop and Start ssh
+#  service:
+#      name: ssh
+#      state: restarted

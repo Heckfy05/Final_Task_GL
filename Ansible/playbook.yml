@@ -1,0 +1,24 @@
+---
+# - name: Password Autentification
+#   hosts: all
+#   become: true
+#   roles:
+#    - hardening_PassAut
+
+# - name: Unattended Upgrades
+#   hosts: all
+#   become: true
+#   roles:
+#    - hardening_AutUpdate
+
+# - name: FireWall
+#   hosts: all
+#   become: true
+#   roles:
+#    - hardening_firewall
+
+- name: Deploying WordPress
+  hosts: all
+  become: true
+  roles:
+   - K8S_WP    
