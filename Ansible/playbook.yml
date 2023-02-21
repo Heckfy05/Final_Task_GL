@@ -21,4 +21,4 @@
   hosts: all
   become: true
   roles:
-   - K8S_WP    
+   - K8S_WP
