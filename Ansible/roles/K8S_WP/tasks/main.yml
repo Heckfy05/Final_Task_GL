@@ -6,11 +6,11 @@
 - name: "Installing certification manager"
   shell: kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
 
-# - name: "Launching WordPress Pod"
-#   shell: kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
+- name: "Configure a Let's Encrypt Issuer"
+  shell: kubectl apply -f https://github.com/Heckfy05/Final_Task_GL/blob/main/Ansible/roles/K8S_WP/wp/Letsencript.yaml
 
-# - name: "Launching WordPress Pod"
-#   shell: kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
+- name: "Deployment Service Ingress"
+  shell: kubectl apply -f https://github.com/Heckfy05/Final_Task_GL/blob/main/Ansible/roles/K8S_WP/wp/Deployment.yaml
 
 - name: "Launching WordPress Pod"
   shell: kubectl run "{{ wp_pod }}" --image "{{ wp_image }}"
