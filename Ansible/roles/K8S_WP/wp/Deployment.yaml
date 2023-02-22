@@ -21,7 +21,6 @@ spec:
         - containerPort: 80
           name: http-web-svc
 
-
 ---
 
 apiVersion: v1
