@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app.kubernetes.io/name: nginx-server
@@ -15,11 +15,12 @@ spec:
         app.kubernetes.io/name: nginx-server
     spec:
       containers:
-      - name: nginx-server
-        image: nginx:latest
+      - name: nginx
+        image: nginx:stable
         ports:
         - containerPort: 80
           name: http-web-svc
+
 
 ---
 
@@ -29,7 +30,7 @@ metadata:
   name: nginx-service
 spec:
   selector:
-    app.kubernetes.io/name: nginx
+    app.kubernetes.io/name: nginx-server
   ports:
   - name: nginx-service-port
     protocol: TCP
@@ -49,10 +50,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - wordpress.v6.rocks
+    - finaltaskgl.v6.rocks
     secretName: quickstart-example-tls
   rules:
-  - host: wordpress.v6.rocks
+  - host: finaltaskgl.v6.rocks
     http:
       paths:
       - path: /
