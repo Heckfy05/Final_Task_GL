@@ -1,4 +1,5 @@
 providers.tf
+providers.json
 # Local .terraform directories
 **/.terraform/*
 

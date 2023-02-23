@@ -8,3 +8,4 @@ docker run --rm -it -v /Users/ruslankarpyn/Documents/DevOPS/kubespray:/mnt \
   ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/GCP -e ansible_user=root -b  cluster.yml
 
 kubectl run mywp1 --image wordpress:5.1.1-php7.3-apache
+s

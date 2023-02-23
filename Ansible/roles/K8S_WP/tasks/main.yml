@@ -1,5 +1,20 @@
+- name: "Configuration k8s step1"
+  shell: mkdir ~/.kube
+
+- name: "Configuration k8s step2"
+  shell: sudo cp /etc/kubernetes/admin.conf ~/.kube/config
+
+- name: "Configuration k8s step3"
+  shell: kubectl apply -f sudo chmod 777 ~/.kube/config
+
+- name: "Configuration k8s step4"
+  shell: kubectl get nodes
+
 - name: "Installing ingress controller"
   shell: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.5.1/deploy/static/provider/cloud/deploy.yaml
+
+- name: "Installing ingress controller"
+  shell: kubectl apply -f https://github.com/rancher/local-path-provisioner/raw/master/deploy/local-path-storage.yaml
 
 - name: "Installing certification manager"
   shell: kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
@@ -9,3 +24,4 @@
 
 - name: "Deployment Service Ingress"
   shell: kubectl apply -f https://github.com/Heckfy05/Final_Task_GL/raw/main/Ansible/roles/K8S_WP/wp/Deployment.yaml
+
