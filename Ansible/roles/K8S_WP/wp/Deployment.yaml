@@ -16,7 +16,7 @@ spec:
     spec:
      containers:
      - name: wp
-       image: wordpress
+       image: nginx
        env:
        - name: WORDPRESS_DB_HOST
          value: 35.195.154.212
