@@ -14,19 +14,19 @@ spec:
       labels:
         app: wp
     spec:
-    containers:
-      - name: wp
-        image: wordpress
-        env:
-        - name: WORDPRESS_DB_HOST
+     containers:
+     - name: wp
+       image: wordpress
+       env:
+       - name: WORDPRESS_DB_HOST
           value: 35.195.154.212
-        - name: WORDPRESS_DB_USER
+       - name: WORDPRESS_DB_USER
           value: wpuser
-        - name: WORDPRESS_DB_PASSWORD
+       - name: WORDPRESS_DB_PASSWORD
           value: wppass
-        - name: WORDPRESS_DB_NAME
+       - name: WORDPRESS_DB_NAME
           value: wpdb
-        ports:
+       ports:
         - name: http-web-svc
           containerPort: 80
 
