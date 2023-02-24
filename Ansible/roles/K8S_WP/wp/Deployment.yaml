@@ -33,10 +33,10 @@ spec:
       #         value: wpuser
       #       - name: WORDPRESS_DB_NAME
       #         value: wpdb
-      volumes:
-        - name: wordpress-data
-          persistentVolumeClaim:
-            claimName: wordpress-volume
+      # volumes:
+      #   - name: wordpress-data
+      #     persistentVolumeClaim:
+      #       claimName: wordpress-volume
 
 # apiVersion: apps/v1
 # kind: Deployment
