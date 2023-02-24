@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         app: wp
-  spec:
+      spec:
       containers:
       - name: wp
         image: nginx
