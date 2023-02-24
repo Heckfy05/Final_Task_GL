@@ -20,14 +20,14 @@ spec:
         ports:
         - containerPort: 80
           name: http-web-svc
-        volumeMounts:
-        - name: wp
-          mountPath: /var/www/html/wp-config.php
-      volumes:
-        - name: wp
-          hostPath:
-            path: /root
-            type: FileOrCreate  
+      #   volumeMounts:
+      #   - name: wp
+      #     mountPath: /var/www/html/wp-config.php
+      # volumes:
+      #   - name: wp
+      #     hostPath:
+      #       path: /root
+      #       type: FileOrCreate  
           # env:
           # - name: WORDPRESS_DB_HOST
           #   value: 35.195.154.212

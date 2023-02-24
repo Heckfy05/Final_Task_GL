@@ -22,6 +22,11 @@
 - name: "Config for WP"
   shell: wget https://github.com/Heckfy05/Final_Task_GL/raw/main/Ansible/roles/K8S_WP/wp/wp-config.php
 
+- name: Verify Permissions on wp-config
+  ansible.builtin.file:
+    path: wp-config.php
+    mode: '0777'  
+
 - name: "Deployment Service Ingress"
   shell: kubectl apply -f https://github.com/Heckfy05/Final_Task_GL/raw/main/Ansible/roles/K8S_WP/wp/Deployment.yaml
 
