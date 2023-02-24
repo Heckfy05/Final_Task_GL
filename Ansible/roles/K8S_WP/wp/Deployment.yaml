@@ -19,25 +19,13 @@ spec:
         image: wordpress
         env:
         - name: WORDPRESS_DB_HOST
-          valueFrom:
-              secretKeyRef:
-                name: db-secret
-                key: 35.195.154.212
+          value: 35.195.154.212
         - name: WORDPRESS_DB_USER
-          valueFrom:
-              secretKeyRef:
-                name: db-secret
-                key: wpuser
+          value: wpuser
         - name: WORDPRESS_DB_PASSWORD
-          valueFrom:
-              secretKeyRef:
-                name: db-secret
-                key: wppass
+          value: wppass
         - name: WORDPRESS_DB_NAME
-          valueFrom:
-              secretKeyRef:
-                name: db-secret
-                key: wpdb
+          value: wpdb
         ports:
         - name: http-web-svc
           containerPort: 80
