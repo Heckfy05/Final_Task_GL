@@ -18,7 +18,7 @@ spec:
           image: wordpress:5.8.3-php7.4-apache
           ports:
           - containerPort: 80
-            name: wp
+            name: http-web-svc
           volumeMounts:
             - name: wordpress-data
               mountPath: /var/www
