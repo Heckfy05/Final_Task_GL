@@ -1,6 +1,3 @@
-# - name: "Configuration k8s step1"
-#   shell: mkdir ~/.kube
-
 - name: "Configuration k8s step2"
   shell: sudo cp /etc/kubernetes/admin.conf ~/.kube/config
 
