@@ -1,25 +1,70 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wp-server
-  labels:
-    app: wp
+  name: wp
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: wp
+      app: wp
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: wp
+        app: wp
     spec:
       containers:
-      - name: wp-server
-        image: wordpress:php8.1-apache
-        ports:
-        - containerPort: 80
-          name: http-web-svc
+        - name: wp
+          image: wordpress:5.8.3-php7.4-apache
+          ports:
+          - containerPort: 80
+            name: wp
+          volumeMounts:
+            - name: wordpress-data
+              mountPath: /var/www
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: 35.195.154.212
+            - name: WORDPRESS_DB_PASSWORD
+              value: wppass 
+            - name: WORDPRESS_DB_USER
+              value: wpuser
+            - name: WORDPRESS_DB_NAME
+              value: wpdb
+      volumes:
+        - name: wordpress-data
+          persistentVolumeClaim:
+            claimName: wordpress-volume
+
+
+
+
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: wp-server
+#   labels:
+#     app: wp
+# spec:
+#   replicas: 2
+#   selector:
+#     matchLabels:
+#       app.kubernetes.io/name: wp
+#   template:
+#     metadata:
+#       labels:
+#         app.kubernetes.io/name: wp
+#     spec:
+#       containers:
+#       - name: wp-server
+#         image: wordpress:php8.1-apache
+#         ports:
+#         - containerPort: 80
+#           name: http-web-svc
+     
+     
+     
+     
       #   volumeMounts:
       #   - name: wp
       #     mountPath: /var/www/html/wp-config.php
