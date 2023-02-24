@@ -24,9 +24,9 @@ spec:
           volumeMounts:
             - name: wordpress-data
               mountPath: /var/www
-      #     env:
-      #       - name: WORDPRESS_DB_HOST
-      #         value: 35.195.154.212
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: 35.195.154.212
       #       - name: WORDPRESS_DB_PASSWORD
       #         value: wppass 
       #       - name: WORDPRESS_DB_USER
