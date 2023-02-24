@@ -50,7 +50,7 @@ spec:
         value: wpdb
       ports:
       - containerPort: 80
-          name: http-web-svc
+        name: http-web-svc
 ---
 
 apiVersion: v1
