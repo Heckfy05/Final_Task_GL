@@ -36,9 +36,6 @@
       #     persistentVolumeClaim:
       #       claimName: wordpress-volume
 
-
-
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -57,14 +54,11 @@ spec:
     spec:
       containers:
       - name: wp-server
-        image: wordpress:php8.1-apache
+        image: wordpress:latest
         ports:
         - containerPort: 80
           name: http-web-svc
-     
-     
-     
-     
+
       #   volumeMounts:
       #   - name: wp
       #     mountPath: /var/www/html/wp-config.php
