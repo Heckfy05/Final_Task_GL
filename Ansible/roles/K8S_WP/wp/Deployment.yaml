@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-web
+  name: wp-web
   labels:
-    app: nginx
+    app: wp
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: wp
   template:
     metadata:
       labels:
-        app: nginx
+        app: wp
     spec:
       containers:
       - name: nginx
