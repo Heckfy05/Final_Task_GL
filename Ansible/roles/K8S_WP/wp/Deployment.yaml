@@ -1,141 +1,45 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wp-server
+  name: nginxserver
   labels:
-    app: wp
+    app: nginx
 spec:
-  replicas: 2
+  replicas:
   selector:
     matchLabels:
-      app.kubernetes.io/name: wp
+      app.kubernetes.io/name: nginxserver
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: wp
+        app.kubernetes.io/name: nginxserver
     spec:
       containers:
-      - name: wp-server
-        image: wordpress
+      - name: nginx
+        image: nginx:latest
         ports:
         - containerPort: 80
           name: http-web-svc
-
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: wp
-#   labels:
-#     app: wp
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: wp
-#   template:
-#    metadata:
-#     labels:
-#         app: wp
-#    spec:
-#     containers:
-#     - name: wp
-#       image: nginx
-#         env:
-#         - name: WORDPRESS_DB_HOST
-#           value: 35.195.154.212
-#         - name: WORDPRESS_DB_USER
-#           value: wpuser
-#         - name: WORDPRESS_DB_PASSWORD
-#           value: wppass
-#         - name: WORDPRESS_DB_NAME
-#           value: wpdb
-#         ports:
-#         - containerPort: 80
-#           name: http-web-svc
-
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: wordpress
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: wordpress
-#   template:
-#     metadata:
-#       labels:
-#         app: wordpress
-#     spec:
-#       volumes:
-#         - name: wordpress
-#           hostPath:
-#             path: /srv/k8s-volumes/wordpress
-#       containers:
-#       - name: wordpress
-#         image: wordpress:5.3.0
-#         ports:
-#         - containerPort: 80
-#         env:
-#         - name: WORDPRESS_DB_HOST
-#           value: mysql:3306
-#         - name: WORDPRESS_DB_USER
-#           value: wordpress
-#         - name: WORDPRESS_DB_PASSWORD
-#           value: password
-#         - name: WORDPRESS_DB_NAME
-#           value: wordpress
-#         - name: WORDPRESS_CONFIG_EXTRA
-#           value: >
-#             define('FS_METHOD','direct');
-#         volumeMounts:
-#           - name: wordpress
-#             mountPath: /var/www/html/wp-content
-          
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: nginx-server
-#   labels:
-#     app: nginx
-# spec:
-#   replicas: 3
-#   selector:
-#     matchLabels:
-#       app.kubernetes.io/name: nginx-server
-#   template:
-#     metadata:
-#       labels:
-#         app.kubernetes.io/name: nginx-server
-#     spec:
-#       containers:
-#       - name: nginx
-#         image: nginx:stable
-#         ports:
-#         - containerPort: 80
-#           name: http-web-svc
-
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: wp-service
+  name: nginxservice
 spec:
   selector:
-    app.kubernetes.io/name: wp
+    app.kubernetes.io/name: nginxserver
   ports:
-  - name: nginx-service-port
+  - name: nginxservicep
     protocol: TCP
     port: 80
     targetPort: http-web-svc
 ---
 
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: wp
+  name: nginxservice
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -153,6 +57,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: wp-service
+            name: nginx
             port:
               number: 80
