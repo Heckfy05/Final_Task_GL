@@ -21,9 +21,9 @@ spec:
           ports:
           - containerPort: 80
             name: http-web-svc
-      #     volumeMounts:
-      #       - name: wordpress-data
-      #         mountPath: /var/www
+          volumeMounts:
+            - name: wordpress-data
+              mountPath: /var/www
       #     env:
       #       - name: WORDPRESS_DB_HOST
       #         value: 35.195.154.212
