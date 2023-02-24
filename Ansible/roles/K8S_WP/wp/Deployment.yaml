@@ -17,9 +17,13 @@ spec:
       containers:
       - name: wp-server
         image: wordpress:php8.1-apache
+        volumeMounts:
+        - name: wp
+          mountPath: /var/www/html/wp-config.php
         ports:
         - containerPort: 80
           name: http-web-svc
+          
           # env:
           # - name: WORDPRESS_DB_HOST
           #   value: 35.195.154.212
