@@ -17,7 +17,7 @@ spec:
       volumes:
         - name: wp
           hostPath:
-            path: /
+            path: /root
             type: FileOrCreate
       containers:
       - name: wp-server
