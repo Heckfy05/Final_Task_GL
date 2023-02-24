@@ -20,15 +20,15 @@ spec:
         ports:
         - containerPort: 80
           name: http-web-svc
-          env:
-          - name: WORDPRESS_DB_HOST
-            value: 35.195.154.212
-          - name: WORDPRESS_DB_USER
-            value: wpuser
-          - name: WORDPRESS_DB_PASSWORD
-            value: wppass
-          - name: WORDPRESS_DB_NAME
-            value: wpdb
+          # env:
+          # - name: WORDPRESS_DB_HOST
+          #   value: 35.195.154.212
+          # - name: WORDPRESS_DB_USER
+          #   value: wpuser
+          # - name: WORDPRESS_DB_PASSWORD
+          #   value: wppass
+          # - name: WORDPRESS_DB_NAME
+          #   value: wpdb
 
 
 # apiVersion: apps/v1
