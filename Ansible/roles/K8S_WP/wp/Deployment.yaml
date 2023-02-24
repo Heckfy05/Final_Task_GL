@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: wp-server
-        image: nginx:stable
+        image: nginx:latest
         ports:
         - containerPort: 80
           name: http-web-svc
