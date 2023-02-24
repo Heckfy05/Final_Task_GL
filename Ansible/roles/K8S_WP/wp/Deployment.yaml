@@ -1,25 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wp1
+  name: nginx-web
   labels:
-    app: wp
+    app: nginx
 spec:
-  replicas:
+  replicas: 3
   selector:
     matchLabels:
-      app.kubernetes.io/name: wp
+      app: nginx
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: wp
+        app: nginx
     spec:
       containers:
-      - name: wp
+      - name: nginx
         image: nginx:latest
         ports:
         - containerPort: 80
-          name: http-web-svc
 
 # apiVersion: apps/v1
 # kind: Deployment
