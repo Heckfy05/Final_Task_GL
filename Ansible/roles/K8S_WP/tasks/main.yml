@@ -10,7 +10,7 @@
 - name: "Installing ingress controller"
   shell: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.5.1/deploy/static/provider/cloud/deploy.yaml
 
-- name: "Installing ingress controller"
+- name: "path_provisioner"
   shell: kubectl apply -f https://github.com/rancher/local-path-provisioner/raw/master/deploy/local-path-storage.yaml
 
 - name: "Installing certification manager"

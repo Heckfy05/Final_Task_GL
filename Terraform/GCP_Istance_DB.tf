@@ -14,7 +14,7 @@ resource "google_compute_firewall" "firewall" {
     ports    = ["22", "80", "443"]
   }
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["externalssh"]
+  target_tags   = ["k8s"]
 }
 
 # Creating Instance
