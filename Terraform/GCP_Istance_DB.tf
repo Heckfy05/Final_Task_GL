@@ -5,7 +5,7 @@ provider "google" {
   region      = var.region
   zone        = var.zone
 }
-
+# Creating firevall
 resource "google_compute_firewall" "firewall" {
   name    = "sshhttps"
   network = "default"
@@ -37,22 +37,7 @@ resource "google_compute_instance" "K8S" {
     ssh-keys = "${var.gcp_ssh_user}:${file(var.publickeypath)}"
   }
 }
-
-# See versions at https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance#database_version
-# resource "google_sql_database_instance" "instance" {
-#   name             = "sql-database-instance"
-#   region           = var.region
-#   database_version = "MYSQL_8_0"
-#   settings {
-#     tier = "db-f1-micro"
-#   }
-
-#   deletion_protection = "false"
-# }
-# resource "google_sql_database" "mysqldb" {
-#   name     = "sql-database"
-#   instance = google_sql_database_instance.instance.name
-# }
+# Creating managed SQL DB
 resource "google_sql_database_instance" "instance" {
 name = "my-database-instance"
 database_version = "MYSQL_8_0"

@@ -1,8 +1,0 @@
-db_pod: "mydb1"
-wp_pod: "mywp1"
-sql_image: "mysql:5.7"
-wp_image: "wordpress:latest"
-mysql_root_password: "redhat"
-database_name: "mywpdb"
-mysql_user: "vrush"
-mysql_password: "redhat"

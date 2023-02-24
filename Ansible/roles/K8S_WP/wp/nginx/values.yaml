@@ -1,6 +1,0 @@
-container:
-  image: wordpress
-
-replicaCount: 2
-host: finaltaskgl.v6.rocks
-port: 80 
