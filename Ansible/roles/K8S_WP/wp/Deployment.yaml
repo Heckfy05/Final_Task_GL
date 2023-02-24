@@ -19,22 +19,22 @@ spec:
           ports:
           - containerPort: 80
             name: http-web-svc
-          volumeMounts:
-            - name: wordpress-data
-              mountPath: /var/www
-          env:
-            - name: WORDPRESS_DB_HOST
-              value: 35.195.154.212
-            - name: WORDPRESS_DB_PASSWORD
-              value: wppass 
-            - name: WORDPRESS_DB_USER
-              value: wpuser
-            - name: WORDPRESS_DB_NAME
-              value: wpdb
-      volumes:
-        - name: wordpress-data
-          persistentVolumeClaim:
-            claimName: wordpress-volume
+      #     volumeMounts:
+      #       - name: wordpress-data
+      #         mountPath: /var/www
+      #     env:
+      #       - name: WORDPRESS_DB_HOST
+      #         value: 35.195.154.212
+      #       - name: WORDPRESS_DB_PASSWORD
+      #         value: wppass 
+      #       - name: WORDPRESS_DB_USER
+      #         value: wpuser
+      #       - name: WORDPRESS_DB_NAME
+      #         value: wpdb
+      # volumes:
+      #   - name: wordpress-data
+      #     persistentVolumeClaim:
+      #       claimName: wordpress-volume
 
 
 
