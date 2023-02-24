@@ -48,8 +48,8 @@ spec:
         value: wppass
       - name: WORDPRESS_DB_NAME
         value: wpdb
-        ports:
-        - containerPort: 80
+      ports:
+      - containerPort: 80
           name: http-web-svc
 ---
 
