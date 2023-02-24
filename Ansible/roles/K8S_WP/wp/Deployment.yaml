@@ -14,17 +14,17 @@ spec:
       labels:
         app.kubernetes.io/name: wp
     spec:
-      volumes:
-        - name: wp
-          hostPath:
-            path: /
-            type: FileOrCreate
+      # volumes:
+      #   - name: wp
+      #     hostPath:
+      #       path: /
+      #       type: FileOrCreate
       containers:
       - name: wp-server
         image: wordpress:php8.1-apache
-        volumeMounts:
-        - name: wp
-          mountPath: /var/www/html/wp-config.php
+        # volumeMounts:
+        # - name: wp
+        #   mountPath: /var/www/html/wp-config.php
         ports:
         - containerPort: 80
           name: http-web-svc
