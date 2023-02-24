@@ -24,19 +24,19 @@ spec:
           volumeMounts:
             - name: wordpress-data
               mountPath: /var/www
-          env:
-            - name: WORDPRESS_DB_HOST
-              value: 35.195.154.212
+          # env:
+          #   - name: WORDPRESS_DB_HOST
+          #     value: 35.195.154.212
       #       - name: WORDPRESS_DB_PASSWORD
       #         value: wppass 
       #       - name: WORDPRESS_DB_USER
       #         value: wpuser
       #       - name: WORDPRESS_DB_NAME
       #         value: wpdb
-      # volumes:
-      #   - name: wordpress-data
-      #     persistentVolumeClaim:
-      #       claimName: wordpress-volume
+      volumes:
+        - name: wordpress-data
+          persistentVolumeClaim:
+            claimName: wordpress-volume
 
 # apiVersion: apps/v1
 # kind: Deployment
