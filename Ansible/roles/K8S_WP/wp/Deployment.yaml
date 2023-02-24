@@ -10,11 +10,11 @@ spec:
     matchLabels:
       app: wp
   template:
-    metadata:
-      labels:
+   metadata:
+    labels:
         app: wp
-      spec:
-      containers:
+    spec:
+     containers:
       - name: wp
         image: nginx
         env:
@@ -29,8 +29,6 @@ spec:
         ports:
         - containerPort: 80
           name: http-web-svc
-
-
 
 # apiVersion: apps/v1
 # kind: Deployment
