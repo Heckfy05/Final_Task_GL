@@ -15,17 +15,17 @@ spec:
         app: wp
     spec:
       containers:
-      - name: wordpress
+      - name: wp
         image: wordpress
         env:
         - name: WORDPRESS_DB_HOST
-          value: "35.195.154.212"
+          value: 35.195.154.212
         - name: WORDPRESS_DB_USER
-          value: "wpuser"
+          value: wpuser
         - name: WORDPRESS_DB_PASSWORD
-          value: "wppass"
+          value: wppass
         - name: WORDPRESS_DB_NAME
-          value: "wpdb"
+          value: wpdb
         ports:
         - name: http-web-svc
           containerPort: 80
