@@ -38,16 +38,16 @@ spec:
    spec:
     containers:
     - name: wp
-      image: wordpress:latest
-        env:
-        - name: WORDPRESS_DB_HOST
-          value: 35.195.154.212
-        - name: WORDPRESS_DB_USER
-          value: wpuser
-        - name: WORDPRESS_DB_PASSWORD
-          value: wppass
-        - name: WORDPRESS_DB_NAME
-          value: wpdb
+      image: wordpress
+      env:
+      - name: WORDPRESS_DB_HOST
+        value: 35.195.154.212
+      - name: WORDPRESS_DB_USER
+        value: wpuser
+      - name: WORDPRESS_DB_PASSWORD
+        value: wppass
+      - name: WORDPRESS_DB_NAME
+        value: wpdb
         ports:
         - containerPort: 80
           name: http-web-svc
